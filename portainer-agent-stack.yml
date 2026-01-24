@@ -20,6 +20,7 @@ services:
       - portainer_data:/data
     networks:
       - agent_network
+      - proxy-network
     env_file:
       - .env
     deploy:
@@ -32,6 +33,9 @@ networks:
   agent_network:
     driver: overlay
     attachable: true
+
+  proxy-network:
+    external: true
 
 volumes:
   portainer_data:
